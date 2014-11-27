@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script type="text/javascript">
+	     //alert(window.screenLeft);
+		 //alert(window.screenX);
+		 //alert(window.screenTop);
+		 //alert(window.screenY);
+		 var pageWidth = window.innerWidth;
+		 var pageHeight = window.innerHeight;
+		 alert("compatMode:"+document.compatMode);
+		 if(typeof pageWidth != 'number')
+		 {
+		    if(document.compatMode == "CSS1Compat")
+			{
+			   pageHeight = document.documentElement.clientHeight;
+			   pageWidth = document.documentElement.clientWidth;
+			}
+			else
+			{
+			   pageHeight = document.body.clientHeight;
+			   pageWidth = document.body.clientWidth;
+			}
+		 }
+		 
+		 alert("pageWidth:"+pageWidth);
+		 alert("pageHeight:"+pageHeight);
+		 window.open("http://www.baidu.com","newWindow","height=400,width=400,top=10,left=10,resizeable=yes");
+	  </script>
+    </head>
+   <body>
+      <div>
+	     test page
+	  </div>
+   </body>
+</html>
