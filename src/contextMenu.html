@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ContextMenu</title>
+      <script type="text/javascript">
+	     window.onload = function()
+		 {
+		   var div = document.getElementById("myDiv");
+		   div.oncontextmenu = function(event)
+		   {
+		     if(undefined == event || null == event)
+			 {
+			   event = window.event;
+			 }
+			 if(event)
+			 {
+			   if(event.preventDefault)
+			   {
+			     event.preventDefault();
+			   }
+			   else
+			   {
+			     event.returnValue = false;
+			   }
+			 }
+		     var menu = document.getElementById("myMenu");
+			 menu.style.left = event.clientX + "px";
+			 menu.style.top = event.clientY + "px";
+			 menu.style.visibility = "visible";
+		   };
+		   document.onclick = function()
+		   {
+		     document.getElementById("myMenu").style.visibility = "hidden";
+		   };
+		   
+		 };
+	  </script>
+    </head>
+   <body>
+      <div id="myDiv">Right click or ctrl+click me to get a custom context menu.</div>
+	  <ul id="myMenu" style="position:absolute;visibility:hidden;background-color:silver;">
+	    <li><a href="http://www.baidu.com">Baidu</a></li>
+		<li><a href="http://www.yahoo.com">Yahoo!</a></li>
+	  </ul>
+   </body>
+</html>

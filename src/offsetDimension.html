@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script type="text/javascript">
+	     function getElementLeft(element)
+		 {
+		    var actualLeft = element.offsetLeft;
+			var current = element.offsetParent;
+			while(null!=current)
+			{
+			   actualLeft = actualLeft + current.offsetLeft;
+			   current = current.offsetParent;
+			}
+			
+			return actualLeft;
+		 }
+		 
+		 function getElementTop(element)
+		 {
+		   var actualTop = element.offsetTop;
+		   var current = element.offsetParent;
+		   while(null!=current)
+		   {
+		     actualTop = actualTop + current.offsetTop;
+			 current = current.offsetParent;
+		   }
+		   
+		   return actualTop;
+		 }
+		 
+		 function showOffset()
+		 {
+		    var element = document.getElementById("myDiv");
+			alert(getElementLeft(element));
+			alert(getElementTop(element));
+		 }
+		 
+		 window.onload=showOffset;
+	  </script>
+    </head>
+   <body>
+      <div>
+	     <div style="height:100px;width:100%;">sdfdsajfdaskfjsdlkfsd</div>
+		 <div style="float:left;height:100px;width:50%;">zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz</div>
+		 <div id="myDiv" style="float:left;height:100px;width:50%;">asdasdasdasdsadasdsasadsa</div>
+	  </div>
+   </body>
+</html>
